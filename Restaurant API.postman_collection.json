@@ -1,0 +1,228 @@
+{
+  "info": {
+    "name": "Restaurant API — Fase 2",
+    "description": "CRUDs /api/v1: user-types, users, restaurants, menu-items",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "userTypeId", "value": "1" },
+    { "key": "userId", "value": "1" },
+    { "key": "restaurantId", "value": "1" },
+    { "key": "menuItemId", "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "User Types",
+      "item": [
+        {
+          "name": "List user types",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/user-types"
+          }
+        },
+        {
+          "name": "Create user type",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Gerente\",\n  \"category\": \"RESTAURANT_STAFF\"\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/user-types"
+          }
+        },
+        {
+          "name": "Get user type",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/user-types/{{userTypeId}}"
+          }
+        },
+        {
+          "name": "Update user type",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Gerente Senior\",\n  \"category\": \"RESTAURANT_STAFF\"\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/user-types/{{userTypeId}}"
+          }
+        },
+        {
+          "name": "Delete user type",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/user-types/{{userTypeId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create user (staff)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Maria Dona\",\n  \"email\": \"maria@rest.com\",\n  \"login\": \"maria\",\n  \"password\": \"senha123\",\n  \"userTypeId\": {{userTypeId}}\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/users"
+          }
+        },
+        {
+          "name": "List users",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/users"
+          }
+        },
+        {
+          "name": "Get user",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/users/{{userId}}"
+          }
+        },
+        {
+          "name": "Update user",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Maria Atualizada\",\n  \"email\": \"maria2@rest.com\",\n  \"login\": \"maria2\"\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/users/{{userId}}"
+          }
+        },
+        {
+          "name": "Change user type",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userTypeId\": {{userTypeId}}\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/users/{{userId}}/user-type"
+          }
+        },
+        {
+          "name": "Delete user",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/users/{{userId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Restaurants",
+      "item": [
+        {
+          "name": "Create restaurant",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cantina da Maria\",\n  \"address\": {\n    \"zipCode\": \"01310-100\",\n    \"street\": \"Av Paulista\",\n    \"number\": \"1000\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\"\n  },\n  \"cuisineType\": \"Italiana\",\n  \"openingHours\": [\n    {\n      \"dayOfWeek\": \"MONDAY\",\n      \"opensAt\": \"11:00:00\",\n      \"closesAt\": \"22:00:00\"\n    }\n  ],\n  \"ownerId\": {{userId}}\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/restaurants"
+          }
+        },
+        {
+          "name": "List restaurants",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/restaurants"
+          }
+        },
+        {
+          "name": "Get restaurant",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/restaurants/{{restaurantId}}"
+          }
+        },
+        {
+          "name": "Update restaurant",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cantina Atualizada\",\n  \"address\": {\n    \"zipCode\": \"01310-100\",\n    \"street\": \"Av Paulista\",\n    \"number\": \"2000\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\"\n  },\n  \"cuisineType\": \"Italiana\",\n  \"openingHours\": [\n    {\n      \"dayOfWeek\": \"TUESDAY\",\n      \"opensAt\": \"12:00:00\",\n      \"closesAt\": \"23:00:00\"\n    }\n  ],\n  \"ownerId\": {{userId}}\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/restaurants/{{restaurantId}}"
+          }
+        },
+        {
+          "name": "Delete restaurant",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/restaurants/{{restaurantId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Menu Items",
+      "item": [
+        {
+          "name": "Create menu item",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Lasanha\",\n  \"description\": \"Bolonhesa\",\n  \"price\": 39.90,\n  \"dineInOnly\": true,\n  \"photoPath\": \"/photos/lasanha.jpg\"\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/restaurants/{{restaurantId}}/menu-items"
+          }
+        },
+        {
+          "name": "List menu items",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/restaurants/{{restaurantId}}/menu-items"
+          }
+        },
+        {
+          "name": "Get menu item",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/restaurants/{{restaurantId}}/menu-items/{{menuItemId}}"
+          }
+        },
+        {
+          "name": "Update menu item",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Lasanha Especial\",\n  \"description\": \"Quatro queijos\",\n  \"price\": 49.90,\n  \"dineInOnly\": false,\n  \"photoPath\": \"/photos/lasanha2.jpg\"\n}"
+            },
+            "url": "{{baseUrl}}/api/v1/restaurants/{{restaurantId}}/menu-items/{{menuItemId}}"
+          }
+        },
+        {
+          "name": "Delete menu item",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/restaurants/{{restaurantId}}/menu-items/{{menuItemId}}"
+          }
+        }
+      ]
+    }
+  ]
+}
