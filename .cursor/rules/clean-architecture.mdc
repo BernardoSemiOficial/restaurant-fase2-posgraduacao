@@ -1,0 +1,49 @@
+---
+description: Clean Architecture — camadas, dependências e convenções deste repositório
+alwaysApply: true
+---
+
+# Clean Architecture (Restaurant API)
+
+Fonte expandida: `docs/CLEAN-ARCHITECTURE.md`.
+
+## Camadas (pacotes)
+
+- `domain` — entidades de negócio, value objects, ports (interfaces). **Sem** Spring, JPA, HTTP, DTOs de API.
+- `application` — use cases / services de aplicação, DTOs internos. Orquestra o domínio; **não** conhece controllers nem detalhes de framework de persistência.
+- `infrastructure` — adapters JPA, Security, OpenAPI, config Docker/Spring. Implementa ports do domain.
+- `presentation` — controllers REST, request/response DTOs, exception handlers (ProblemDetail).
+
+## Regra de dependência
+
+Dependências apontam **apenas para dentro**:
+
+`presentation` → `application` → `domain` ← `infrastructure`
+
+- `domain` não importa outras camadas.
+- `application` não importa `presentation` nem `infrastructure`.
+- `presentation` e `infrastructure` podem depender de `application`/`domain`, nunca um do outro de forma cíclica.
+
+## Proibições
+
+- Não expor entidades JPA/`@Entity` em controllers ou responses HTTP.
+- Não usar `@Autowired` de repositórios Spring direto em controllers — passar por application services.
+- Não colocar regras de negócio em controllers ou adapters JPA.
+- Não adicionar anotações de framework (`@Entity`, `@RestController`, `@Service` Spring) em classes do `domain`.
+
+## Onde colocar o quê
+
+| Tipo | Camada |
+|---|---|
+| Entidade / VO / enum de negócio | `domain` |
+| Interface de repositório (port) | `domain` (ou `domain.port`) |
+| Use case / application service | `application` |
+| DTO de request/response HTTP | `presentation` |
+| Implementação JPA do port | `infrastructure` |
+| Security / OpenAPI config | `infrastructure` |
+| GlobalExceptionHandler | `presentation` |
+
+## Testes
+
+- Unitários priorizam `domain` e `application` (mocks dos ports).
+- Integração cobrem adapters + HTTP em `src/test`.
