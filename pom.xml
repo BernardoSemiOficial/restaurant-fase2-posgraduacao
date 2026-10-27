@@ -175,6 +175,15 @@
 						</configuration>
 					</execution>
 				</executions>
+				<configuration>
+					<excludes>
+						<exclude>com/api/restaurant/RestaurantApplication.class</exclude>
+						<exclude>com/api/restaurant/presentation/dto/**</exclude>
+						<exclude>com/api/restaurant/infrastructure/config/**</exclude>
+						<exclude>com/api/restaurant/infrastructure/persistence/entity/**</exclude>
+						<exclude>com/api/restaurant/infrastructure/persistence/jpa/**</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
