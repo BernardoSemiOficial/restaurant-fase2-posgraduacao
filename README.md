@@ -60,7 +60,7 @@ Seed automático ao subir: tipos `Cliente` (`CUSTOMER`), `Dono` e `Equipe` (`RES
 |---|---|
 | [docs/CLEAN-ARCHITECTURE.md](docs/CLEAN-ARCHITECTURE.md) | Guia de Clean Architecture do repositório |
 | [docs/RELATORIO-TECNICO.md](docs/RELATORIO-TECNICO.md) | Relatório técnico (arquitetura, endpoints, execução) |
-| [Restaurant API.postman_collection.json](Restaurant%20API.postman_collection.json) | Collection Postman |
+| [Restaurant API - Fase 2 - Clean Architecture.postman_collection.json](Restaurant%20API%20-%20Fase%202%20-%20Clean%20Architecture.postman_collection.json) | Collection Postman |
 
 Variável Postman: `baseUrl` = `http://localhost:8080`.
 

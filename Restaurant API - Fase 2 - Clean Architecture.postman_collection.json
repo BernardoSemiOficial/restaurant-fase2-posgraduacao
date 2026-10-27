@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "Restaurant API — Fase 2",
+    "name": "Restaurant API — Fase 2 — Clean Architecture",
     "description": "CRUDs /api/v1: user-types, users, restaurants, menu-items",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
