@@ -2,6 +2,8 @@
 
 API REST em Spring Boot com **Clean Architecture** para gestão de **tipos de usuário**, **usuários**, **restaurantes** e **itens do cardápio**.
 
+**Repositório:** https://github.com/BernardoSemiOficial/restaurant-fase2-posgraduacao
+
 ## Stack
 
 - Java 25 / Spring Boot 4.1
