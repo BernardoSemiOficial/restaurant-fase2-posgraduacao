@@ -95,3 +95,7 @@ Documentação interativa: Swagger UI em `/swagger-ui/index.html`.
 ## 7. Como reproduzir
 
 Ver [README.md](../README.md). Collection Postman na raiz do repositório.
+
+## 8. Vídeo de entrega
+
+Demonstração da solução: https://www.loom.com/share/e3c2d23858724deba5c3a47c48c92fa5

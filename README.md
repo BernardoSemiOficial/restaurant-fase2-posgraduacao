@@ -66,4 +66,6 @@ Variável Postman: `baseUrl` = `http://localhost:8080`.
 
 ## Vídeo de entrega
 
-Grave ~5 minutos mostrando: Compose/Swagger, CRUD dos 3 recursos do enunciado, regras (staff no dono, bloqueio de troca de tipo, cascade no cardápio) e, se possível, `./mvnw verify`.
+Demonstração da API (Compose/Swagger, CRUDs, regras de negócio e cobertura):
+
+https://www.loom.com/share/e3c2d23858724deba5c3a47c48c92fa5
