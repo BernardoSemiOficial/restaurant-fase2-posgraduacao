@@ -1,5 +1,7 @@
 # Relatório técnico — Restaurant API (Fase 2)
 
+**Repositório:** https://github.com/BernardoSemiOficial/restaurant-fase2-posgraduacao
+
 ## 1. Objetivo
 
 Atender ao Tech Challenge da fase 2: CRUD de tipo de usuário (com associação a usuários), cadastro de restaurantes e itens do cardápio, organizados em Clean Architecture, com documentação, collection de testes, Docker Compose e cobertura de testes.
